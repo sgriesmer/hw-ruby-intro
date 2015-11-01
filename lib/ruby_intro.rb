@@ -36,16 +36,20 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  return false if s[0] !=~ /^[a-zA-Z]/
-  if s[0] !=~ /^[aeiouAEIOU]/
+  return false if s.empty?
+  return false if s =~ /^[^(a-zA-Z)].*$/
+  return false if s =~ /^[aeiouAEIOU].*$/
+  return true
+end
+
+def binary_multiple_of_4? s
+  return false if s.empty?
+  return false if s =~ /[^(01)]/
+  if s.to_i(2) % 4 == 0
     return true
   else
     return false
   end
-end
-
-def binary_multiple_of_4? s
-  # YOUR CODE HERE
 end
 
 # Part 3
