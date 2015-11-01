@@ -17,15 +17,13 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  arr.delete_if { |a| a > n }
   return false if arr.empty? || arr.count == 1
   return false if arr.include? n && !(arr.include? 0)
-  return true if arr.include? n && (arr.include? 0)
-  i = 1
+  arr.delete_if { |a| a > n }
+  i = 0
   s = arr.sort
-  while i < s.count
+  while i < n-i
     return true if (s.include? n-i) && (s.include? i)
-    puts n-1,i
     i += 1
   end
   return false
@@ -34,7 +32,7 @@ end
 # Part 2
 
 def hello(name)
-  puts "Hello, #{name}"
+  return "Hello, " + name
 end
 
 def starts_with_consonant? s
