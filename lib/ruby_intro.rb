@@ -36,6 +36,7 @@ def hello(name)
 end
 
 def starts_with_consonant? s
+  return false if s[0] !=~ /^[a-zA-Z]/
   if s[0] !=~ /^[aeiouAEIOU]/
     return true
   else
